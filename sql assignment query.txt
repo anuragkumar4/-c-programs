@@ -1,0 +1,297 @@
+--CREATE DATABASE Anurag_500282
+--QUESTION 1--
+CREATE TABLE PACK_GRADES
+(
+GRADE_ID		INT			NOT NULL  PRIMARY KEY,
+GRADE_NAME		VARCHAR(30)  NOT NULL,
+MIN_PRICE		INT			 NOT NULL,
+MAX_PRICE		INT			 NOT NULL
+)
+
+CREATE TABLE PACKAGES
+(
+PACK_ID			INT				NOT NULL  PRIMARY KEY,
+SPEED			VARCHAR(50)		NOT NULL,
+STRT_DATE		DATE			NOT NULL,
+MONTHLY_PAYMENT	INT				NOT NULL,
+SECTOR_ID		INT			    NOT NULL REFERENCES SECTORS (SECTOR_ID)
+)
+
+CREATE TABLE SECTORS
+(
+SECTOR_ID			INT			NOT NULL	 PRIMARY KEY,
+SECTOR_NAME			VARCHAR(50) NOT	NULL
+)
+
+
+--QUESTION 2
+
+CREATE TABLE CUSTOMERS
+(
+COSTOMER_ID		INT				NOT NULL	 PRIMARY KEY,
+FIRST_NAME		VARCHAR(50)		NOT NULL,
+LAST_NAME		VARCHAR(50)		NULL,
+BIRTH_DATE		DATE			NULL,
+JOIN_DATE		DATE			NULL,
+CITY			VARCHAR(50)		NULL,
+STATES			VARCHAR(50)		NULL,
+STREET			VARCHAR(50)		NULL,
+MAIN_PHONE_NUMBERS	VARCHAR(50)		NOT NULL,
+SECONDORY_PHONE_NUMBERS	VARCHAR(50)	NULL,
+FAX				VARCHAR(50)     NULL,
+MONTHLY_DISCOUNT	DECIMAL		NULL,
+PACK_ID			INT				NOT NULL
+)
+
+
+
+
+INSERT customers VALUES(1,'Alvin','Smith','1962-06-27',CAST(0x812D0B00 AS
+Date),'NewYork','NewYork','5953HollisterAvenue','567.867.3945','936.228.9436','762.788
+.3400',CAST(28.00 AS Decimal(4,2)),18)
+INSERT customers VALUES(2,'Jose','Jones','1968-01-17',CAST(0x12300B00 AS
+Date),'LosAngeles','California','4081HollisterAvenue','520.336.8373','939.115.6982','7
+11.883.3345',CAST(12.00 AS Decimal(4,2)),31)
+INSERT customers VALUES(3,'Amado','Taylor','1965-08-17',CAST(0x802C0B00 AS
+Date),'Chicago','Illinois','3402BroderickStreet','522.501.6331','976.113.3737','767.94
+4.7131',NULL,7)
+INSERT customers VALUES(4,'Stuart','Williams','1983-05-01',CAST(0xF32E0B00 AS
+Date),'Houston','Texas','5543JenningsStreet','530.339.4737','963.891.4185','756.186.36
+34',CAST(17.00 AS Decimal(4,2)),23)
+INSERT customers VALUES(5,'Demarcus','Brown','1971-12-02',CAST(0xD62C0B00 AS
+Date),'Philadelphia','Pennsylvania','5321LagunaStreet','580.733.2184',NULL,'760.663.20
+46',CAST(11.00 AS Decimal(4,2)),13)
+INSERT customers VALUES(6,'Mark','Davies','1970-09-01',CAST(0xAB310B00 AS
+Date),'Phoenix','Arizona','5868CameronWay','557.701.1366','919.345.5511',NULL,CAST(18.00
+ AS Decimal(4,2)),39)
+INSERT customers VALUES(7,'Merlin','Evans','1962-04-13',CAST(0xD52B0B00 AS
+Date),'SanAntonio','Texas','8177BrannanStreet','542.753.9215','992.959.8999',NULL,CAST
+(23.00 AS Decimal(4,2)),1)
+INSERT customers VALUES(8,'Elroy','Wilson','1963-01-28',CAST(0x19330B00 AS
+Date),'SanDiego','California','1873KeyAvenue','544.172.1347','985.345.8501',NULL,CAST(
+6.00 AS Decimal(4,2)),42)
+INSERT customers VALUES(9,'Charles','Thomas','1960-05-13',CAST(0x44320B00 AS
+Date),'SanJose','California','9164ValenciaStreet','515.656.3047',NULL,'799.101.7626',
+CAST(29.00 AS Decimal(4,2)),37)
+INSERT customers VALUES(10,'Rudolph','Roberts','1973-11-05',CAST(0x412C0B00 AS
+Date),'Jacksonville','Florida','6308GilbertStreet','549.569.1762','942.671.2496','729.
+973.1742',CAST(7.00 AS Decimal(4,2)),7)
+INSERT customers VALUES(11,'Laurence','Johnson','1975-11-25',CAST(0xC62F0B00 AS
+Date),'Indianapolis','Indiana','7529McLarenAvenue','527.138.3311','916.219.9787',NULL,
+CAST(9.00 AS Decimal(4,2)),34)
+INSERT customers VALUES(12,'Pasquale','Lewis','1969-05-24',CAST(0x162F0B00 AS
+Date),'Austin','Texas','1569ClevelandStreet','566.849.6722','983.706.4341',NULL,NULL,27)
+INSERT customers VALUES(13,'Pat','Walker','1985-07-02',CAST(0x8D300B00 AS
+Date),'SanFrancisco','California','4687SloatBoulevard','582.885.8362','938.219.8802',
+NULL,NULL,31)
+INSERT customers VALUES(14,'Harland','Robinson','1974-04-17',CAST(0xFD2F0B00 AS
+Date),'Columbus','Ohio','5390MontgomeryStreet','520.519.1795','944.392.2529','721.443.
+8826',CAST(30.00 AS Decimal(4,2)),31)
+INSERT customers VALUES(15,'Herschel','Wood','1974-07-24',CAST(0xE9320B00 AS
+Date),'FortWorth','Texas','7842CorbettAvenue','588.826.5279','997.263.1636','779.791.4
+617',CAST(30.00 AS Decimal(4,2)),41)
+INSERT customers VALUES(16,'Galen','Thompson','1964-12-08',CAST(0x902B0B00 AS
+Date),'Charlotte','NorthCarolina','5466FarragutAvenue','599.783.7133',NULL,'753.251.64
+33',CAST(16.00 AS Decimal(4,2)),1)
+INSERT customers VALUES(17,'Brain','White','1978-02-13',CAST(0x1F300B00 AS
+Date),'Detroit','Michigan','3728IngersonStreet','561.654.2679','957.711.4041','794.811
+.7354',NULL,34)
+INSERT customers VALUES(18,'Marcel','Watson','1978-10-12',CAST(0x452E0B00 AS
+Date),'ElPaso','Texas','9157LeidesdorffStreet','567.827.2421','937.806.4116','723.277.
+6166',CAST(28.00 AS Decimal(4,2)),23)
+INSERT customers VALUES(19,'Lino','Jackson','1982-06-25',CAST(0x2E2E0B00 AS
+Date),'Memphis','Tennessee','4542McKinnonAvenue','557.460.8507','984.433.8202','792.90
+8.7024',CAST(6.00 AS Decimal(4,2)),27)
+INSERT customers VALUES(20,'Riley','Wright','1970-02-18',CAST(0x2B2B0B00 AS
+Date),'Boston','Massachusetts','4848VallejoStreet','541.661.3366','931.368.3046','737.
+625.7424',CAST(21.00 AS Decimal(4,2)),1)
+
+INSERT packages VALUES(1,'750Kbps',CAST(0x5C2C0B00 AS Date),79,1)
+INSERT packages VALUES(2,'750Kbps',CAST(0x8D2D0B00 AS Date),69,1)
+INSERT packages VALUES(3,'750Kbps',CAST(0x092E0B00 AS Date),59,1)
+INSERT packages VALUES(4,'750Kbps',CAST(0x05300B00 AS Date),49,1)
+INSERT packages VALUES(5,'750Kbps',CAST(0xF9310B00 AS Date),39,1)
+INSERT packages VALUES(6,'750Kbps',CAST(0x51320B00 AS Date),29,1)
+INSERT packages VALUES(7,'750Kbps',CAST(0xA42B0B00 AS Date),69,2)
+INSERT packages VALUES(8,'750Kbps',CAST(0x7D2D0B00 AS Date),59,2)
+INSERT packages VALUES(9,'750Kbps',CAST(0x342F0B00 AS Date),49,2)
+INSERT packages VALUES(10,'750Kbps',CAST(0x9C300B00 AS Date),39,2)
+INSERT packages VALUES(11,'750Kbps',CAST(0x29320B00 AS Date),29,2)
+INSERT packages VALUES(12,'750Kbps',CAST(0x2C330B00 AS Date),19,2)
+INSERT packages VALUES(13,'1.5Mbps',CAST(0xBD2C0B00 AS Date),89,1)
+INSERT packages VALUES(14,'1.5Mbps',CAST(0xB52E0B00 AS Date),79,1)
+INSERT packages VALUES(15,'1.5Mbps',CAST(0xA2300B00 AS Date),69,1)
+INSERT packages VALUES(16,'1.5Mbps',CAST(0x8F310B00 AS Date),59,1)
+INSERT packages VALUES(17,'1.5Mbps',CAST(0x76320B00 AS Date),49,1)
+INSERT packages VALUES(18,'1.5Mbps',CAST(0x3B2D0B00 AS Date),79,2)
+INSERT packages VALUES(19,'1.5Mbps',CAST(0x3C2E0B00 AS Date),69,2)
+INSERT packages VALUES(20,'1.5Mbps',CAST(0xA02F0B00 AS Date),59,2)
+INSERT packages VALUES(21,'1.5Mbps',CAST(0x4A310B00 AS Date),49,2)
+INSERT packages VALUES(22,'1.5Mbps',CAST(0x5F320B00 AS Date),39,2)
+INSERT packages VALUES(23,'2.5Mbps',CAST(0x0C2E0B00 AS Date),99,1)
+INSERT packages VALUES(24,'2.5Mbps',CAST(0xD82F0B00 AS Date),89,1)
+INSERT packages VALUES(25,'2.5Mbps',CAST(0xC6310B00 AS Date),79,1)
+INSERT packages VALUES(26,'2.5Mbps',CAST(0x09330B00 AS Date),69,1)
+INSERT packages VALUES(27,'2.5Mbps',CAST(0x8B2E0B00 AS Date),89,2)
+INSERT packages VALUES(28,'2.5Mbps',CAST(0x7C2F0B00 AS Date),79,2)
+INSERT packages VALUES(29,'2.5Mbps',CAST(0xEC300B00 AS Date),69,2)
+INSERT packages VALUES(30,'2.5Mbps',CAST(0x66320B00 AS Date),59,2)
+INSERT packages VALUES(31,'5Mbps',CAST(0x55300B00 AS Date),109,1)
+INSERT packages VALUES(32,'5Mbps',CAST(0xF6300B00 AS Date),99,1)
+INSERT packages VALUES(33,'5Mbps',CAST(0xDF320B00 AS Date),89,1)
+INSERT packages VALUES(34,'5Mbps',CAST(0xD1300B00 AS Date),99,2)
+INSERT packages VALUES(35,'5Mbps',CAST(0x24320B00 AS Date),89,2)
+INSERT packages VALUES(36,'5Mbps',CAST(0x5D330B00 AS Date),79,2)
+INSERT packages VALUES(37,'10Mbps',CAST(0xE8300B00 AS Date),119,1)
+INSERT packages VALUES(38,'10Mbps',CAST(0xAF320B00 AS Date),109,1)
+INSERT packages VALUES(39,'10Mbps',CAST(0x2A320B00 AS Date),109,2)
+INSERT packages VALUES(40,'10Mbps',CAST(0x5C320B00 AS Date),99,2)
+INSERT packages VALUES(41,'12Mbps',CAST(0xB2330B00 AS Date),129,1)
+INSERT packages VALUES(42,'12Mbps','2005-11-03',119,2)
+
+INSERT sectors VALUES(1,'Private')
+INSERT sectors VALUES(2,'Business')
+
+INSERT pack_grades VALUES (1, 'Very Low', 0, 10)
+INSERT pack_grades VALUES (2, 'Low', 11, 20)
+INSERT pack_grades VALUES (3, 'Medium', 21, 40)
+INSERT pack_grades VALUES (4, 'High', 41, 80)
+INSERT pack_grades VALUES (5, 'Very High', 81, 150)
+
+
+alter table packages
+alter column monthly_payment money
+
+alter table packages
+alter column speed varchar(20)
+
+--3. select * from customers
+--4. select pack_id,speed, monthly_payment from packages
+--5. select costomer_id, First_name, last_name,main_phone_numbers,secondry_phone_numbers,pack_id from customers
+
+--6. select first_name, last_name, join_date, (MONTHLY_DISCOUNT+(MONTHLY_DISCOUNT* .2)) as monthlydiscountafter_additionoftwentypercent,
+	 (monthly_discount- .2)as monthly_discount_after_reduction_of_twenty_percent
+		from customers
+--7. select pack_id, speed,strt_date, monthly_payment, monthly_payment*12 as yearly_payment from packages
+--8. 
+select concat(First_name,'',Last_name) as FULL_NAME,
+           concat(Main_phone_Numbers,'','',SECONDORY_PHONE_NUMBERS) as contact_details
+		   from customers
+--9. select distinct CITY from customers
+--10.select distinct STATES from customers
+--11. select distinct CITY, STATES from customers
+
+--12. select concat(Last_name,'',States) as CUSTOMER_AND_STATE from customers
+--13. select First_Name as FN,Last_Name as LN, Monthly_discount as DC, concat(city,'',street)
+           as FULL_ADDRESS from customers
+--14.select distinct monthly_discount from customers
+--15. select distinct pack_id from customers
+--16. select first_name, last_name, pack_id from customers 
+       where last_name='king';
+--17. select * from packages where speed= '5Mbps';
+--18. select first_name, last_name, pack_id, 
+       monthly_discount from customers
+	   where monthly_discount<30;
+--19. select * from customers
+       where join_date< '2007-01-01'
+--20. select costomer_id, first_name, States,city, pack_id from customers
+       where pack_id IN (21,28,14)
+--21. select costomer_id, first_name, States,city, pack_id from customers
+       where pack_id IN (21,28,14)
+--22. select last_name, main_phone_numbers, monthly_discount, pack_id from customers
+       where pack_id in(703,314,560)
+--23. select first_name, monthly_discount from customers
+       where first_name like '%e';       
+--24. select last_name, pack_id from customers
+       where last_name like '_d%';	        
+--25.select * from customers 
+      where( last_name like '%i%' or
+	         last_name like '%j%' or
+			 last_name like '%h')
+			 order by MONTHLY_DISCOUNT desc;
+--26. select first_name, join_date, monthly_discount,pack_id from customers 
+       where last_name not like '%a%'
+	   order by pack_id ;
+--27. select * from customers 
+       where pack_id is null;
+--28. select concat(first_name,'',last_name) as full_name,
+         monthly_discount from customers
+		 where monthly_discount not between 20 and 30
+		 order by full_name;
+--29. select concat(first_name,'',last_name) as full_name, concat(main_phone_numbers,'',street) as CONTACTS,
+         monthly_discount as DC from customers
+		 where monthly_discount between 11 and 27;
+--30.select * from customers
+      where( City='NewYork' and monthly_discount between 30 and 40)
+	  or
+	  (pack_id not in(8,19,30) and join_date<'2007-01-01')
+--31. select last_name, pack_id, birth_date from customers
+      where join_date between '2007-12-12' and '2010-04-17';
+--32.  select pack_id, strt_date, speed from packages
+       where strt_date< '2007-01-01';
+
+--33. select pack_id, speed, sector_id from packages
+       where sector_id=1;
+--34. select pack_id,speed, sector_id from packages
+       where speed='5mbps' or speed='10mbps';
+--35. select last_name, monthly_discount from customers
+      where city='orlando';	   
+--36. select last_name, pack_id	from customers
+       where pack_id in(9,18);  
+	   
+	   select last_name, pack_id from customers
+	   where pack_id=9 or pack_id=18;
+--37. select first_name, main_phone_numbers, secondory_phone_numbers from customers
+      where secondory_phone_numbers is null;	
+--38. select first_name, monthly_discount,pack_id from customers
+	   where monthly_discount is null;  
+--39. select costomer_id, lower(first_name),upper(last_name) from customers
+       where costomer_id between 80 and 150;	
+--40.	select first_name, last_name,   	      
+	    concat(substring(first_name,1,1), upper((substring(last_name,1,3))),'@mymail.com')
+		as email_address from customers;
+--40.2. select first_name, last_name, 
+        concat(substring(first_name,1,1), upper((substring(last_name, len(last_name)-2,3))),'@mymail.com')
+		as email_address from customers;   
+--41. select last_name, len(last_name) from customers
+       where len(last_name)>9; 
+--42.select first_name, last_name, 
+       main_phone_numbers, replace(main_phone_numbers, '515' , '$$$') as new_phone_number 
+	        from customers
+--42.2. select first_name, last_name, 
+     main_phone_numbers, concat(replace(left(main_phone_numbers, 3), '515' , '$$$'), 
+	 substring(main_phone_numbers,4,12)) as new_phone_number
+	  from customers
+--43. select first_name, monthly_discount,
+         monthly_discount * 1.197,
+		 ROUND(monthly_discount * 1.197,2),
+		 FLOOR(monthly_discount * 1.197),
+		 CEILING(monthly_discount * 1.197)
+		 from customers
+
+	   
+
+       
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
